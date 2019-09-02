@@ -20,6 +20,9 @@ public class TaskList {
     @OneToMany(mappedBy = "taskList")
     private List<Task> listOfTasks;
 
+    private String email;
+    private String token;
+
     @PrePersist
     public void init()
     {

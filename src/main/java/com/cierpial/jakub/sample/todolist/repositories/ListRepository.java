@@ -11,4 +11,6 @@ public interface ListRepository extends CrudRepository<TaskList,Long> {
     List<TaskList> findAll();
 
     TaskList findById(long id);
+
+    TaskList findByToken(String token);
 }

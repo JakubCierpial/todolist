@@ -9,16 +9,63 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-<div>
-    <h2>Welcome to your task list</h2>
-</div>
-<div>
-    <label>Create your task list</label>
-    <form action="#"  method="post"  th:action="@{'/createnew'}"
-          th:object="${taskList}">
-        <input th:field="*{title}" type="text" required >
-        <button class="btn btn-primary" type="submit">Create</button>
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="row">
+            <div class="col">
+                <h2>Welcome to your task list</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <label>Create your task list</label>
+    </div>
+
+    <form action="#" method="post" th:action="@{'/createnew'}" th:object="${taskList}">
+        <div class="row  justify-content-md-center">
+            <div class="col-1">
+                <label for="title">Title : </label>
+            </div>
+            <div class="col-4">
+                <input id="title" class="form-control" th:field="*{title}" type="text" required>
+            </div>
+        </div>
+        <div class="row  justify-content-md-center">
+            <div class="col-1">
+                <label for="email">Email : </label>
+            </div>
+            <div class="col-4">
+                <input style="background-color: darkgray" id="email" class="form-control" th:field="*{email}"
+                       type="email"
+                       title="If you want to get url to mail">
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-md-center">
+            <button class="btn btn-primary" type="submit">Create</button>
+        </div>
     </form>
+    <br>
+    <div class="row justify-content-md-center">
+        <label>Or if you already have task list</label>
+    </div>
+    <form action="#" method="post" th:action="@{/show}" th:object="${tokenDto}">
+        <div class="row  justify-content-md-center">
+            <div class="col-1">
+                <label for="token">Token : </label>
+            </div>
+            <div class="col-4">
+                <input class="form-control" id="token" th:field="*{token}" type="text" required/>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <button class="btn btn-primary mt-2" name="action" type="submit">Show</button>
+        </div>
+    </form>
+</div>
+
 </div>
 </body>
 </html>
